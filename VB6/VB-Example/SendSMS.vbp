@@ -1,9 +1,10 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
-Reference=*\G{E7516F4C-26F4-426C-A66E-80D72BC869CE}#1.0#0#..\MaSms\MaSms\bin\Release\jawalySms.tlb#jawalySms
-Form=C:\Program Files (x86)\Microsoft Visual Studio\VB98\Form1.frm
+Reference=*\G{E7516F4C-26F4-426C-A66E-80D72BC869CE}#1.0#0#..\..\MaSms\MaSms\bin\Release\jawalySms.tlb#jawalySms
+Form=Form1.frm
 Startup="Form1"
 ExeName32="SendSMS.exe"
+Path32=".."
 Command32=""
 Name="Project1"
 HelpContextID="0"
