@@ -31,8 +31,8 @@ namespace API_Example.Models
     }
     public class SendData
     {
-        public List<message> messages { get; set; }
-        public Globals globals { get; set; }
+        public message messages { get; set; }
+        public string sender { get; set; }
     }
     
     public class Account
