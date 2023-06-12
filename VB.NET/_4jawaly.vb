@@ -11,19 +11,16 @@ Namespace API_Example_VB
     Module _4jawaly
         Private UserAgent As String = "XXXXXXXXX" 'put your useragent here
 
-        Function Send4jawaly(ByVal App_key As String, ByVal App_secret As String, ByVal SenderName As String, ByVal messages As List(Of message)) As SendResult
+        Function Send4jawaly(ByVal App_key As String, ByVal App_secret As String, ByVal SenderName As String, ByVal messages As message) As SendResult
             Dim senddata = New SendData()
             senddata.messages = messages
-            senddata.globals = New Globals() With {
-                .number_iso = "SA",
-                .sender = SenderName
-            }
+            senddata.sender = SenderName
+
             Dim url = "https://api-sms.4jawaly.com/api/v1/account/area/sms/send"
             Dim credentials As String = App_key & ":" & App_secret
             Dim httpRequest = CType(WebRequest.Create(url), HttpWebRequest)
             httpRequest.Method = "POST"
             httpRequest.Accept = "application/json"
-            httpRequest.UserAgent = UserAgent
             httpRequest.ContentType = "application/json"
             httpRequest.Headers("Authorization") = "Basic " & Convert.ToBase64String(Encoding.ASCII.GetBytes(credentials))
             Dim serializer = New JavaScriptSerializer()
@@ -43,13 +40,35 @@ Namespace API_Example_VB
                     Using streamReader = New StreamReader(httpResponse.GetResponseStream())
                         result = streamReader.ReadToEnd()
                     End Using
+
+
+                    Dim myDeserializedClass As _4jawalyRoot = JsonConvert.DeserializeObject(Of _4jawalyRoot)(result)
+                    Return New SendResult() With {
+                        .Sent = True,
+                        .Message = result
+                    }
+                ElseIf httpResponse.StatusCode = HttpStatusCode.Ambiguous Or httpResponse.StatusCode = HttpStatusCode.BadRequest Then
+
+                    Using streamReader = New StreamReader(httpResponse.GetResponseStream())
+                        result = streamReader.ReadToEnd()
+                    End Using
+
+
+                    Dim myDeserializedClass As _4jawalyRoot = JsonConvert.DeserializeObject(Of _4jawalyRoot)(result)
+                    Return New SendResult() With {
+                            .Sent = False,
+                            .Message = result
+                        }
+                Else
+                    Dim statusCode As Integer = httpResponse.StatusCode
+
+                    Return New SendResult() With {
+                           .Sent = False,
+                           .Message = statusCode
+                       }
+
                 End If
 
-                Dim myDeserializedClass As _4jawalyRoot = JsonConvert.DeserializeObject(Of _4jawalyRoot)(result)
-                Return New SendResult() With {
-                    .Sent = True,
-                    .Message = result
-                }
             Catch ex As Exception
                 Return New SendResult() With {
                     .Sent = False,

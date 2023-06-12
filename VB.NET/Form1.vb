@@ -18,18 +18,19 @@ Public Class Form1
 
 
     Private Sub BtnSend_Click(sender As Object, e As EventArgs) Handles BtnSend.Click
-        Dim mobiles As String() = txtMobiles.Text.Split(","c)
+        Dim mobiles As String() = txtMobiles.Text.Split(",")
 
-        Dim messages As List(Of Message) = New List(Of Message)()
-
-        For Each mobile In mobiles
-            messages.Add(New Message() With {
-    .text = txtMessage.Text,
-    .numbers = New List(Of String)() From {
-    mobile
-    }
-    })
-        Next
+        Dim messages As message = New message()
+        messages.text = txtMessage.Text
+        messages.numbers = mobiles.ToList()
+        '    For Each mobile In mobiles
+        '        messages.Add(New Message() With {
+        '.text = txtMessage.Text,
+        '.numbers = New List(Of String)() From {
+        'mobile
+        '}
+        '})
+        '    Next
 
         Dim result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, messages)
         If result.Sent Then
