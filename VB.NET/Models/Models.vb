@@ -22,8 +22,8 @@ Namespace API_Example_VB.Models
     End Class
 
     Public Class SendData
-        Public Property messages As List(Of message)
-        Public Property globals As Globals
+        Public Property messages As message
+        Public Property sender As String
     End Class
 
     Public Class Account
