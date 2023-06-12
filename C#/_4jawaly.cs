@@ -16,7 +16,7 @@ namespace API_Example
     {
         private static string UserAgent = "XXXXXXXXX";//put your useragent here
 
-        public static SendResult Send4jawaly(string App_key, string App_secret, string SenderName, List<message> messages)
+        public static SendResult Send4jawaly(string App_key, string App_secret, string SenderName, message messages)
         {
 
 
@@ -24,11 +24,12 @@ namespace API_Example
 
 
             senddata.messages = messages;
-            senddata.globals = new Globals()
-            {
-                number_iso = "SA",
-                sender = SenderName
-            };
+            senddata.sender = SenderName;
+            //senddata.globals = new Globals()
+            //{
+            //    number_iso = "SA",
+            //    sender = SenderName
+            //};
 
 
           

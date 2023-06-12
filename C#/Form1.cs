@@ -39,16 +39,18 @@ namespace API_Example
         {
             string[] mobiles = txtMobiles.Text.Split(',');
 
-            List<message> messages = new List<message>();
+            message messages = new message();
+            messages.text = txtMessage.Text;
+            messages.numbers=mobiles.ToList();
 
-            foreach (var mobile in mobiles)
-            {
-                messages.Add(new message()
-                {
-                    text = txtMessage.Text,
-                    numbers = new List<string>() { mobile }
-                });
-            }
+            //foreach (var mobile in mobiles)
+            //{
+            //    messages.Add(new message()
+            //    {
+            //        text = txtMessage.Text,
+            //        numbers = new List<string>() { mobile }
+            //    });
+            //}
 
             var result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, messages);
             if (result.Sent)
