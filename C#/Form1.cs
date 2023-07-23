@@ -37,11 +37,11 @@ namespace API_Example
 
         private void BtnSend_Click(object sender, EventArgs e)
         {
-            string[] mobiles = txtMobiles.Text.Split(',');
+            //string[] mobiles = txtMobiles.Text.Split(',');
 
-            message messages = new message();
-            messages.text = txtMessage.Text;
-            messages.numbers=mobiles.ToList();
+            //message messages = new message();
+            //messages.text = txtMessage.Text;
+            //messages.numbers=mobiles.ToList();
 
             //foreach (var mobile in mobiles)
             //{
@@ -52,15 +52,17 @@ namespace API_Example
             //    });
             //}
 
-            var result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, messages);
-            if (result.Sent)
-            {
-                MessageBox.Show("Message sent تم الارسال");
-            }
-            else
-            {
-                MessageBox.Show("Message not sent لم يتم الارسال" + Environment.NewLine + result.Message);
-            }
+            var result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, txtMobiles.Text, txtMessage.Text);
+
+                MessageBox.Show(result);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var result = _4jawaly.GetBalance(txtAPIkey.Text, txtAPISecret.Text);
+
+            MessageBox.Show(result);
         }
     }
 }

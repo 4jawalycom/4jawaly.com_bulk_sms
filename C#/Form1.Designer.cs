@@ -31,7 +31,6 @@ namespace API_Example
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbSenderNames = new System.Windows.Forms.ComboBox();
             this.BtnConnect = new System.Windows.Forms.Button();
             this.txtAPISecret = new System.Windows.Forms.TextBox();
@@ -39,15 +38,17 @@ namespace API_Example
             this.label2 = new System.Windows.Forms.Label();
             this.txtAPIkey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSenderNames2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMessage = new System.Windows.Forms.RichTextBox();
-            this.txtMobiles = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.BtnSend = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.txtMobiles = new System.Windows.Forms.TextBox();
+            this.txtMessage = new System.Windows.Forms.RichTextBox();
+            this.cmbSenderNames2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,25 +83,6 @@ namespace API_Example
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "الاعدادات Settings";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.BtnSend);
-            this.tabPage2.Controls.Add(this.txtMobiles);
-            this.tabPage2.Controls.Add(this.txtMessage);
-            this.tabPage2.Controls.Add(this.cmbSenderNames2);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(661, 332);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "الارسال Send";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // cmbSenderNames
             // 
@@ -163,57 +145,25 @@ namespace API_Example
             this.label1.TabIndex = 6;
             this.label1.Text = "API key";
             // 
-            // cmbSenderNames2
+            // tabPage2
             // 
-            this.cmbSenderNames2.DisplayMember = "sender_name";
-            this.cmbSenderNames2.FormattingEnabled = true;
-            this.cmbSenderNames2.Location = new System.Drawing.Point(253, 36);
-            this.cmbSenderNames2.Name = "cmbSenderNames2";
-            this.cmbSenderNames2.Size = new System.Drawing.Size(239, 21);
-            this.cmbSenderNames2.TabIndex = 12;
-            this.cmbSenderNames2.ValueMember = "sender_name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(500, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "أسماء الاسال SenderNames";
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(253, 178);
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(239, 96);
-            this.txtMessage.TabIndex = 13;
-            this.txtMessage.Text = "";
-            // 
-            // txtMobiles
-            // 
-            this.txtMobiles.Location = new System.Drawing.Point(253, 106);
-            this.txtMobiles.Name = "txtMobiles";
-            this.txtMobiles.Size = new System.Drawing.Size(239, 20);
-            this.txtMobiles.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(498, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "الأرقام Mobiles";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(498, 178);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "نص الرسالة Message";
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.BtnSend);
+            this.tabPage2.Controls.Add(this.txtMobiles);
+            this.tabPage2.Controls.Add(this.txtMessage);
+            this.tabPage2.Controls.Add(this.cmbSenderNames2);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(661, 332);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "الارسال Send";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // BtnSend
             // 
@@ -225,6 +175,49 @@ namespace API_Example
             this.BtnSend.UseVisualStyleBackColor = true;
             this.BtnSend.Click += new System.EventHandler(this.BtnSend_Click);
             // 
+            // txtMobiles
+            // 
+            this.txtMobiles.Location = new System.Drawing.Point(253, 106);
+            this.txtMobiles.Name = "txtMobiles";
+            this.txtMobiles.Size = new System.Drawing.Size(239, 20);
+            this.txtMobiles.TabIndex = 14;
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(253, 178);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(239, 96);
+            this.txtMessage.TabIndex = 13;
+            this.txtMessage.Text = "";
+            // 
+            // cmbSenderNames2
+            // 
+            this.cmbSenderNames2.DisplayMember = "sender_name";
+            this.cmbSenderNames2.FormattingEnabled = true;
+            this.cmbSenderNames2.Location = new System.Drawing.Point(253, 36);
+            this.cmbSenderNames2.Name = "cmbSenderNames2";
+            this.cmbSenderNames2.Size = new System.Drawing.Size(239, 21);
+            this.cmbSenderNames2.TabIndex = 12;
+            this.cmbSenderNames2.ValueMember = "sender_name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(498, 178);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "نص الرسالة Message";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(169, 144);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(312, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Mobiles seperated by coma ex 9665123456789,9665123456789";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -234,14 +227,33 @@ namespace API_Example
             this.label7.TabIndex = 11;
             this.label7.Text = "أرقام الجوال مفصولة ب فاصلة مثال 9665123456789,9665123456789";
             // 
-            // label8
+            // label5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(169, 144);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(315, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Mobiles seperated by coma ex 9665123456789,9665123456789";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(498, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "الأرقام Mobiles";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(500, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "أسماء الاسال SenderNames";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(373, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "الرصيد";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -284,6 +296,7 @@ namespace API_Example
         private System.Windows.Forms.Button BtnSend;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }
 
