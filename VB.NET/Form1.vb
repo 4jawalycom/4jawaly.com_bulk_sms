@@ -18,25 +18,17 @@ Public Class Form1
 
 
     Private Sub BtnSend_Click(sender As Object, e As EventArgs) Handles BtnSend.Click
-        Dim mobiles As String() = txtMobiles.Text.Split(",")
 
-        Dim messages As message = New message()
-        messages.text = txtMessage.Text
-        messages.numbers = mobiles.ToList()
-        '    For Each mobile In mobiles
-        '        messages.Add(New Message() With {
-        '.text = txtMessage.Text,
-        '.numbers = New List(Of String)() From {
-        'mobile
-        '}
-        '})
-        '    Next
 
-        Dim result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, messages)
-        If result.Sent Then
-            MessageBox.Show("Message sent تم الارسال")
-        Else
-            MessageBox.Show("Message not sent لم يتم الارسال" & Environment.NewLine & result.Message)
-        End If
+        Dim result = _4jawaly.Send4jawaly(txtAPIkey.Text, txtAPISecret.Text, cmbSenderNames2.Text, txtMobiles.Text, txtMessage.Text)
+
+        MessageBox.Show(result)
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim result = _4jawaly.GetBalance(txtAPIkey.Text, txtAPISecret.Text)
+
+        MessageBox.Show(result)
     End Sub
 End Class

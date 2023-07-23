@@ -41,6 +41,7 @@ Partial Class Form1
         Me.label7 = New System.Windows.Forms.Label()
         Me.label5 = New System.Windows.Forms.Label()
         Me.label4 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
@@ -138,6 +139,7 @@ Partial Class Form1
         '
         'tabPage2
         '
+        Me.tabPage2.Controls.Add(Me.Button1)
         Me.tabPage2.Controls.Add(Me.BtnSend)
         Me.tabPage2.Controls.Add(Me.txtMobiles)
         Me.tabPage2.Controls.Add(Me.txtMessage)
@@ -194,7 +196,7 @@ Partial Class Form1
         Me.label6.AutoSize = True
         Me.label6.Location = New System.Drawing.Point(498, 178)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(105, 13)
+        Me.label6.Size = New System.Drawing.Size(103, 13)
         Me.label6.TabIndex = 11
         Me.label6.Text = "نص الرسالة Message"
         '
@@ -203,7 +205,7 @@ Partial Class Form1
         Me.label8.AutoSize = True
         Me.label8.Location = New System.Drawing.Point(169, 144)
         Me.label8.Name = "label8"
-        Me.label8.Size = New System.Drawing.Size(315, 13)
+        Me.label8.Size = New System.Drawing.Size(312, 13)
         Me.label8.TabIndex = 11
         Me.label8.Text = "Mobiles seperated by coma ex 9665123456789,9665123456789"
         '
@@ -221,7 +223,7 @@ Partial Class Form1
         Me.label5.AutoSize = True
         Me.label5.Location = New System.Drawing.Point(498, 109)
         Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(74, 13)
+        Me.label5.Size = New System.Drawing.Size(75, 13)
         Me.label5.TabIndex = 11
         Me.label5.Text = "الأرقام Mobiles"
         '
@@ -233,6 +235,15 @@ Partial Class Form1
         Me.label4.Size = New System.Drawing.Size(138, 13)
         Me.label4.TabIndex = 11
         Me.label4.Text = "أسماء الاسال SenderNames"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(403, 296)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "الرصيد"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -273,4 +284,5 @@ Partial Class Form1
     Private WithEvents label7 As Label
     Private WithEvents label5 As Label
     Private WithEvents label4 As Label
+    Private WithEvents Button1 As Button
 End Class
