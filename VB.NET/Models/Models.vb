@@ -1,6 +1,10 @@
-﻿
+﻿Imports System
+Imports System.Collections.Generic
+Imports System.Linq
+Imports System.Text
+Imports System.Threading.Tasks
 
-Namespace API_Example_VB.Models
+Namespace API_Example.Models
     Public Class _4jawalyProvider
         Public Property app_key As String
         Public Property app_secret As String
@@ -22,8 +26,8 @@ Namespace API_Example_VB.Models
     End Class
 
     Public Class SendData
-        Public Property messages As message
-        Public Property sender As String
+        Public Property messages As List(Of message)
+        Public Property globals As Globals
     End Class
 
     Public Class Account
@@ -47,10 +51,11 @@ Namespace API_Example_VB.Models
         Public Property queue_number As String
     End Class
 
-    'Public Class Message
-    '    Public Property inserted_numbers As Integer
-    '    Public Property message As Message2
-    'End Class
+    Public Class RMessage
+        Public Property inserted_numbers As Integer
+        Public Property message As Message2
+        Public Property err_text As String
+    End Class
 
     Public Class Message2
         Public Property account_id As Integer
@@ -73,7 +78,7 @@ Namespace API_Example_VB.Models
 
     Public Class _4jawalyRoot
         Public Property job_id As String
-        Public Property messages As List(Of message)
+        Public Property messages As List(Of RMessage)
         Public Property code As Integer
         Public Property message As String
     End Class
@@ -160,5 +165,37 @@ Namespace API_Example_VB.Models
         Public Property code As Integer
         Public Property message As String
         Public Property item As Item
+    End Class
+
+    Public Class Network
+        Public Property id As Integer
+        Public Property image As String
+        Public Property image_path As String
+        Public Property network_tags As List(Of NetworkTag)
+    End Class
+
+    Public Class NetworkTag
+        Public Property id As Integer
+        Public Property image As String
+        Public Property title As String
+        Public Property network_id As Integer
+        Public Property image_path As String
+    End Class
+
+    Public Class Package
+        Public Property id As Integer
+        Public Property title_ar As String
+    End Class
+
+    Public Class Balance
+        Public Property code As Integer
+        Public Property message As String
+        Public Property items As List(Of Item)
+        Public Property total_balance As Integer
+    End Class
+
+    Public Class Response
+        Public Property code As Integer
+        Public Property message As String
     End Class
 End Namespace
