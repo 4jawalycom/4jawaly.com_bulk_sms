@@ -1,0 +1,154 @@
+openapi: 3.0.0
+info:
+  title: Jawaly SMS API
+  description: API for sending SMS messages, checking balance, and managing senders
+  version: 1.0.0
+servers:
+  - url: https://api-sms.4jawaly.com/api/v1
+    description: Jawaly SMS API Server
+security:
+  - basicAuth: []
+paths:
+  /account/area/sms/send:
+    post:
+      summary: Send SMS messages
+      description: Send SMS messages to multiple recipients
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendSMSRequest'
+      responses:
+        '200':
+          description: Messages sent successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendSMSResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  
+  /account/area/me/packages:
+    get:
+      summary: Get account balance
+      description: Retrieve the current balance for the account
+      responses:
+        '200':
+          description: Balance retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /account/area/senders:
+    get:
+      summary: Get available senders
+      description: Retrieve list of available sender names
+      responses:
+        '200':
+          description: Senders retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendersResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    SendSMSRequest:
+      type: object
+      required:
+        - messages
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            required:
+              - text
+              - numbers
+              - sender
+            properties:
+              text:
+                type: string
+                description: Message content
+              numbers:
+                type: array
+                items:
+                  type: string
+                description: Array of recipient phone numbers
+              sender:
+                type: string
+                description: Sender name
+
+    SendSMSResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        job_id:
+          type: string
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              err_text:
+                type: string
+
+    BalanceResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        total_balance:
+          type: number
+        message:
+          type: string
+
+    SendersResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              sender_name:
+                type: string
+        message:
+          type: string
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+
+    UnprocessableEntity:
+      description: Unprocessable entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
