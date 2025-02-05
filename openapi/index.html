@@ -1,0 +1,83 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>4Jawaly SMS API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.css" />
+    <link rel="icon" type="image/png" href="https://4jawaly.com/favicon.ico" sizes="32x32" />
+    <style>
+      html {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        margin: 0;
+        background: #fafafa;
+      }
+
+      .swagger-ui .topbar {
+        background-color: #2c3e50;
+      }
+
+      .swagger-ui .info .title small {
+        background: #e74c3c;
+      }
+
+      .swagger-ui .opblock.opblock-post {
+        background: rgba(73, 204, 144, .1);
+        border-color: #49cc90;
+      }
+
+      .swagger-ui .opblock.opblock-get {
+        background: rgba(97, 175, 254, .1);
+        border-color: #61affe;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+      const ui = SwaggerUIBundle({
+        url: "jawaly-api.yaml",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout",
+        defaultModelsExpandDepth: -1,
+        displayRequestDuration: true,
+        docExpansion: "list",
+        filter: true,
+        tryItOutEnabled: true,
+        supportedSubmitMethods: ['get', 'post'],
+        onComplete: function() {
+          ui.preauthorizeApiKey('ApiKeyAuth', 'YOUR-API-KEY');
+          ui.preauthorizeApiKey('ApiSecretAuth', 'YOUR-API-SECRET');
+        }
+      });
+      // End Swagger UI call region
+      window.ui = ui;
+    };
+    </script>
+  </body>
+</html>
