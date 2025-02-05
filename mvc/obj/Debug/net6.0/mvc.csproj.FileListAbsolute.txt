@@ -1,0 +1,128 @@
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\appsettings.Development.json
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\appsettings.json
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.staticwebassets.runtime.json
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.exe
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.deps.json
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.runtimeconfig.json
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.dll
+E:\you\mvc\mvc\mvc\bin\Debug\net6.0\mvc.pdb
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.csproj.AssemblyReference.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.GeneratedMSBuildEditorConfig.editorconfig
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.AssemblyInfoInputs.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.AssemblyInfo.cs
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.csproj.CoreCompileInputs.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.MvcApplicationPartsAssemblyInfo.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cs
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.mvc.Microsoft.AspNetCore.StaticWebAssets.props
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.build.mvc.props
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.mvc.props
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.mvc.props
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets.pack.json
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets.build.json
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\staticwebassets.development.json
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\scopedcss\bundle\mvc.styles.css
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\scopedcss\projectbundle\mvc.bundle.scp.css
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.dll
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\refint\mvc.dll
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.pdb
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\mvc.genruntimeconfig.cache
+E:\you\mvc\mvc\mvc\obj\Debug\net6.0\ref\mvc.dll
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.csproj.AssemblyReference.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.GeneratedMSBuildEditorConfig.editorconfig
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.AssemblyInfoInputs.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.AssemblyInfo.cs
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.csproj.CoreCompileInputs.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.MvcApplicationPartsAssemblyInfo.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cs
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.dll
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\refint\mvc.dll
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.pdb
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\appsettings.Development.json
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\appsettings.json
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.staticwebassets.runtime.json
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.exe
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.deps.json
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.runtimeconfig.json
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.dll
+D:\Etqan\Sameh\mvc\mvc\bin\Debug\net6.0\mvc.pdb
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.mvc.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.build.mvc.props
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.mvc.props
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.mvc.props
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets.build.json
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\staticwebassets.development.json
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\scopedcss\bundle\mvc.styles.css
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\scopedcss\projectbundle\mvc.bundle.scp.css
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\mvc.genruntimeconfig.cache
+D:\Etqan\Sameh\mvc\mvc\obj\Debug\net6.0\ref\mvc.dll
+E:\you\New folder\mvc\bin\Debug\net6.0\appsettings.Development.json
+E:\you\New folder\mvc\bin\Debug\net6.0\appsettings.json
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.staticwebassets.runtime.json
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.exe
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.deps.json
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.runtimeconfig.json
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.dll
+E:\you\New folder\mvc\bin\Debug\net6.0\mvc.pdb
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.csproj.AssemblyReference.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.GeneratedMSBuildEditorConfig.editorconfig
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.AssemblyInfoInputs.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.AssemblyInfo.cs
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.csproj.CoreCompileInputs.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.MvcApplicationPartsAssemblyInfo.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cs
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.mvc.Microsoft.AspNetCore.StaticWebAssets.props
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.build.mvc.props
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.mvc.props
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.mvc.props
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets.pack.json
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets.build.json
+E:\you\New folder\mvc\obj\Debug\net6.0\staticwebassets.development.json
+E:\you\New folder\mvc\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\you\New folder\mvc\obj\Debug\net6.0\scopedcss\bundle\mvc.styles.css
+E:\you\New folder\mvc\obj\Debug\net6.0\scopedcss\projectbundle\mvc.bundle.scp.css
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.dll
+E:\you\New folder\mvc\obj\Debug\net6.0\refint\mvc.dll
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.pdb
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.genruntimeconfig.cache
+E:\you\New folder\mvc\obj\Debug\net6.0\ref\mvc.dll
+E:\you\New folder\mvc\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\you\New folder\mvc\obj\Debug\net6.0\mvc.csproj.CopyComplete
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\appsettings.Development.json
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\appsettings.json
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.staticwebassets.runtime.json
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.exe
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.deps.json
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.runtimeconfig.json
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.dll
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\mvc.pdb
+D:\Etqan\Sameh\mvc\New folder\mvc\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.csproj.AssemblyReference.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.GeneratedMSBuildEditorConfig.editorconfig
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.AssemblyInfoInputs.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.AssemblyInfo.cs
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.csproj.CoreCompileInputs.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.MvcApplicationPartsAssemblyInfo.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.RazorAssemblyInfo.cs
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.mvc.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.build.mvc.props
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.mvc.props
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.mvc.props
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets.build.json
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\staticwebassets.development.json
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\scopedcss\bundle\mvc.styles.css
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\scopedcss\projectbundle\mvc.bundle.scp.css
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.csproj.CopyComplete
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.dll
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\refint\mvc.dll
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.pdb
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\mvc.genruntimeconfig.cache
+D:\Etqan\Sameh\mvc\New folder\mvc\obj\Debug\net6.0\ref\mvc.dll

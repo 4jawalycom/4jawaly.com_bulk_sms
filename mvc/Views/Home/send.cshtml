@@ -1,0 +1,78 @@
+﻿@model mvc.Models.Models.Root
+
+
+@{
+    ViewData["Title"] = "Sendin";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ارسال رساله</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <div class="d-flex flex-column text-white" style="width: 280px;">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/Home/Setting" class="navLink">الإعدادات</a>
+            <a href="/Home/send" class="navLink">الإرسال</a>
+        </div>
+    </div>
+    <div class="togglebtn">
+        <div class="d-flex align-items-center text-white toggledNav" id="controller">
+            <span style="font-size:30px;cursor:pointer" dir="rtl" onclick="openNav()">☰</span>
+            <span>الإرسال</span>
+        </div>
+    </div>
+    <div>
+        <div class="wtg">
+            <h1>@ViewData["Status"]</h1>
+            <div dir="rtl" id="contentContain">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group m-3">
+                                <label for="nameSend" class="mb-2">أسماء الإرسال</label>
+                                <select asp-for="sender"  id="nameSend" class="form-select" style="width: 300px;">
+                                    @if (ViewData["ListUserSend"] == null || ((List<string>)ViewData["ListUserSend"]).Count() == 0)
+                                    {
+                                        <option value="">قيد الانتظار لإستلام قائمة الارسال</option>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var user in ViewData["ListUserSend"] as List<string>)
+                                        {
+                                            <option value="@user">@user</option>
+                                        }
+                                    }
+
+                                </select>
+                            </div>
+                            <div class="form-group m-3">
+                                <label  for="numbers1" class="mb-2">الأرقام</label>
+                                <textarea asp-for="numbers"  class="d-block form-control" id="numbers1" cols="30" rows="2"></textarea>
+                            </div>
+                            <div class="form-group m-3">
+                                <label for="numbers2" class="mb-2">نص الرسالة</label>
+                                <textarea asp-for="text"  class="d-block form-control" id="numbers2" cols="30" rows="6"></textarea>
+                            </div>
+                            <button asp-action="SendSms" type="submit" class="btn btn-primary m-3 float-end" style="background-color: #483285;">إرســــــال</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="/js/main.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</body>
+</html>

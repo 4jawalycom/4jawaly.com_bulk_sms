@@ -1,0 +1,88 @@
+﻿@model mvc.Models.Models._4jawalyProvider
+
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات</title>
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <div class="d-flex flex-column text-white" style="width: 280px;">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/Home/Setting" class="navLink">الإعدادات</a>
+            <a href="/Home/send" class="navLink">الإرسال</a>
+        </div>
+    </div>
+    <div class="togglebtn">
+        <div class="d-flex align-items-center text-white toggledNav" id="controller">
+            <span style="font-size:30px;cursor:pointer" dir="rtl" onclick="openNav()">☰</span>
+            <span>الإعدادات</span>
+        </div>
+    </div>
+    <div>
+        <div class="wtg">
+            <div dir="rtl" id="contentContain">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>@ViewData["Status"]</h1>
+                        <form>
+                            <div class="form-group m-3">
+                                <label for="apiKeyInput">API Key</label>
+                                <input asp-for="app_key" type="text" class="form-control" id="apiKeyInput">
+                            </div>
+                            <div class="form-group m-3">
+                                <label for="apiSecretInput">API Secret</label>
+                                <input asp-for="app_secret" type="password" class="form-control" id="apiSecretInput">
+                            </div>
+                            <button asp-action="Connect" type="submit" class="btn btn-primary float-end m-3" style="background-color: #483285;">إتصال</button>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group m-3">
+                                <label for="nameSend" class="mb-2">أسماء الإرسال</label>
+                                <select name="" id="nameSend" class="form-select w-30" style="width: 300px;">
+                                    @if (ViewData["ListUser"] == null || ((List<string>)ViewData["ListUser"]).Count == 0)
+                                    {
+                                        <option value="">قيد الانتظار لإستلام قائمة الارسال</option>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var user in ViewData["ListUser"] as List<string>)
+                                        {
+                                            <option value="@user">@user</option>
+                                        }
+                                    }
+                                    
+                            
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary m-3 float-end" style="background-color: #483285;">تعيين كأفتراضي</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</body>
+</html>

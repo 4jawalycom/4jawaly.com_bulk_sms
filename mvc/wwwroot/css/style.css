@@ -1,0 +1,105 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+right: 0; 
+background-color: #483285; 
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+.wtg{
+    margin: 20px 50px 10px 10px;
+}
+.content {
+    margin-right: 280px;
+    transition: margin-right 0.5s;
+  }
+  
+  .sidenav.open {
+    width: 280px;
+  }
+  
+  .sidenav.close {
+    width: 0;
+  }
+  .float-end {
+    float: right;
+  }
+.togglebtn{
+height: 60px;
+color: #fff;
+background-color: #483285;
+direction: rtl;
+padding-right: 30px;
+padding-top: 8px;
+transition: 0.5s;
+}
+
+.sidenav .closebtn {
+padding: 4px 8px 8px 32px;
+text-decoration: none;
+font-size: 20px;
+color: #fff; 
+display: block;
+transition: 0.3s;
+}
+
+.sidenav a:hover {
+color: #fff; 
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 36px;
+    color: #fff;
+}
+.navLink{
+    padding: 8px 0px 9px 19px ;
+    border: 1px solid #fff;
+    justify-content: center;
+    font-weight: 700;
+    padding-left: 86px !important;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff; 
+    display: block;
+    transition: 0.3s;
+}
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+
+.navbar-toggle {
+font-size: 30px;
+color: #fff; 
+cursor: pointer;
+position: fixed;
+top: 20px;
+left: 20px;
+z-index: 1;
+}
+.navLink:hover{
+    background-color: #fff;
+    color: #483285 !important;
+}
+.navbar-toggle:hover {
+color: #fff; 
+}
+
+.arabic-text {
+font-size: 24px;
+color: #fff; 
+cursor: pointer;
+margin: 20px;
+display: inline-block;
+direction: rtl; 
+}

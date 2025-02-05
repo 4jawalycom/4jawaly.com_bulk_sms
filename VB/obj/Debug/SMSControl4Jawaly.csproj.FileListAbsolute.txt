@@ -1,0 +1,11 @@
+D:\Applications\4Jawaly\SMSControl4Jawaly\obj\Debug\SMSControl4Jawaly.csproj.AssemblyReference.cache
+D:\Applications\4Jawaly\SMSControl4Jawaly\obj\Debug\SMSControl4Jawaly.csproj.CoreCompileInputs.cache
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\SMSControl4Jawaly.dll
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\SMSControl4Jawaly.pdb
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\Models.dll
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\Newtonsoft.Json.dll
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\Models.pdb
+D:\Applications\4Jawaly\SMSControl4Jawaly\bin\Debug\Newtonsoft.Json.xml
+D:\Applications\4Jawaly\SMSControl4Jawaly\obj\Debug\SMSControl4Jawaly.csproj.CopyComplete
+D:\Applications\4Jawaly\SMSControl4Jawaly\obj\Debug\SMSControl4Jawaly.dll
+D:\Applications\4Jawaly\SMSControl4Jawaly\obj\Debug\SMSControl4Jawaly.pdb
