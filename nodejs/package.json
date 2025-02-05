@@ -1,0 +1,19 @@
+{
+  "name": "4jawaly-sms",
+  "version": "1.0.0",
+  "description": "Node.js library for 4Jawaly SMS API",
+  "main": "sms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sms",
+    "4jawaly",
+    "api"
+  ],
+  "author": "4Jawaly",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
