@@ -1,18 +1,52 @@
 openapi: 3.0.0
 info:
   title: Jawaly SMS API
-  description: API for sending SMS messages, checking balance, and managing senders
-  version: 1.0.0
+  description: |
+    واجهة برمجة التطبيقات لإرسال الرسائل النصية والتحقق من الرصيد وإدارة المرسلين.
+    يدعم الإرسال المتوازي للرسائل لتحسين الأداء.
+
+    API for sending SMS messages, checking balance, and managing senders.
+    Supports parallel sending of messages for improved performance.
+
+    ایس ایم ایس بھیجنے، بیلنس چیک کرنے اور بھیجنے والوں کی انتظام کے لئے اے پی آئی۔
+    بہتر کارکردگی کے لئے متوازی پیغام بھیجنے کی سہولت۔
+  version: 1.2.4
 servers:
   - url: https://api-sms.4jawaly.com/api/v1
-    description: Jawaly SMS API Server
+    description: |
+      خادم واجهة برمجة تطبيقات جوالي للرسائل النصية
+      Jawaly SMS API Server
+      جوالی ایس ایم ایس اے پی آئی سرور
 security:
   - basicAuth: []
 paths:
   /account/area/sms/send:
     post:
-      summary: Send SMS messages
-      description: Send SMS messages to multiple recipients
+      summary: |
+        إرسال رسائل نصية
+        Send SMS messages
+        ایس ایم ایس پیغامات بھیجیں
+      description: |
+        إرسال رسائل نصية لعدة مستلمين.
+        يدعم الإرسال المتوازي لتحسين الأداء.
+        يتم تقسيم الرسائل تلقائياً إلى مجموعات بناءً على عدد المستلمين:
+        - 1-5 مستلمين: طلب واحد
+        - 6-100 مستلم: 5 طلبات متوازية
+        - أكثر من 100 مستلم: طلبات متوازية متعددة بحجم مجموعة 100
+
+        Send SMS messages to multiple recipients.
+        Supports parallel sending for improved performance.
+        Messages are automatically grouped into batches based on the number of recipients:
+        - 1-5 recipients: Single request
+        - 6-100 recipients: 5 parallel requests
+        - >100 recipients: Multiple parallel requests with batch size of 100
+
+        متعدد وصول کنندگان کو ایس ایم ایس پیغامات بھیجیں۔
+        بہتر کارکردگی کے لئے متوازی بھیجنے کی سہولت۔
+        پیغامات کو وصول کنندگان کی تعداد کی بنیاد پر خود بخود گروپوں میں تقسیم کیا جاتا ہے:
+        - 1-5 وصول کنندگان: ایک درخواست
+        - 6-100 وصول کنندگان: 5 متوازی درخواستیں
+        - 100 سے زیادہ وصول کنندگان: 100 کے بیچ سائز کے ساتھ متعدد متوازی درخواستیں
       requestBody:
         required: true
         content:
@@ -21,7 +55,10 @@ paths:
               $ref: '#/components/schemas/SendSMSRequest'
       responses:
         '200':
-          description: Messages sent successfully
+          description: |
+            تم إرسال الرسائل بنجاح
+            Messages sent successfully
+            پیغامات کامیابی سے بھیج دیئے گئے
           content:
             application/json:
               schema:
@@ -33,29 +70,76 @@ paths:
   
   /account/area/me/packages:
     get:
-      summary: Get account balance
-      description: Retrieve the current balance for the account
+      summary: |
+        الحصول على رصيد الحساب
+        Get account balance
+        اکاؤنٹ بیلنس حاصل کریں
+      description: |
+        استرجاع الرصيد الحالي للحساب
+        Retrieve the current balance for the account
+        اکاؤنٹ کا موجودہ بیلنس حاصل کریں
+      parameters:
+        - name: is_active
+          in: query
+          schema:
+            type: integer
+            enum: [0, 1]
+          description: |
+            تصفية حسب الباقات النشطة (1) أو جميع الباقات (0)
+            Filter by active packages (1) or all packages (0)
+            فعال پیکجز (1) یا تمام پیکجز (0) کے مطابق فلٹر کریں
+        - name: order_by
+          in: query
+          schema:
+            type: string
+          description: |
+            الترتيب حسب الحقل
+            Field to order by
+            ترتیب دینے کے لئے فیلڈ
+        - name: order_by_type
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+          description: |
+            اتجاه الترتيب
+            Order direction
+            ترتیب کی سمت
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: |
+            رقم الصفحة للتصفح
+            Page number for pagination
+            صفحہ نمبر برائے صفحہ بندی
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+          description: |
+            عدد العناصر في الصفحة
+            Number of items per page
+            فی صفحہ اشیاء کی تعداد
+        - name: return_collection
+          in: query
+          schema:
+            type: integer
+            enum: [0, 1]
+          description: |
+            إرجاع كمجموعة (1) أو عنصر واحد (0)
+            Return as collection (1) or single item (0)
+            مجموعہ (1) یا واحد شے (0) کے طور پر واپس کریں
       responses:
         '200':
-          description: Balance retrieved successfully
+          description: |
+            تم استرجاع الرصيد بنجاح
+            Balance retrieved successfully
+            بیلنس کامیابی سے حاصل کر لیا گیا
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BalanceResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-
-  /account/area/senders:
-    get:
-      summary: Get available senders
-      description: Retrieve list of available sender names
-      responses:
-        '200':
-          description: Senders retrieved successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SendersResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
 
@@ -64,6 +148,10 @@ components:
     basicAuth:
       type: http
       scheme: basic
+      description: |
+        المصادقة الأساسية باستخدام مفتاح API وكلمة السر
+        Basic authentication using API key and secret
+        اے پی آئی کی اور خفیہ کوڈ کا استعمال کرتے ہوئے بنیادی تصدیق
 
   schemas:
     SendSMSRequest:
@@ -82,59 +170,85 @@ components:
             properties:
               text:
                 type: string
-                description: Message content
+                description: |
+                  محتوى الرسالة
+                  Message content
+                  پیغام کا مواد
               numbers:
                 type: array
                 items:
                   type: string
-                description: Array of recipient phone numbers
+                description: |
+                  مصفوفة أرقام المستلمين.
+                  للأداء الأمثل:
+                  - 1-5 أرقام: طلب واحد
+                  - 6-100 رقم: 5 طلبات متوازية
+                  - أكثر من 100 رقم: طلبات متوازية متعددة (حجم المجموعة 100)
+
+                  Array of recipient phone numbers.
+                  For optimal performance:
+                  - 1-5 numbers: Single request
+                  - 6-100 numbers: 5 parallel requests
+                  - >100 numbers: Multiple parallel requests (batch size 100)
+
+                  وصول کنندگان کے فون نمبروں کی فہرست۔
+                  بہترین کارکردگی کے لئے:
+                  - 1-5 نمبر: ایک درخواست
+                  - 6-100 نمبر: 5 متوازی درخواستیں
+                  - 100 سے زیادہ نمبر: متعدد متوازی درخواستیں (بیچ سائز 100)
               sender:
                 type: string
-                description: Sender name
+                description: |
+                  اسم المرسل
+                  Sender name
+                  بھیجنے والے کا نام
 
     SendSMSResponse:
       type: object
       properties:
-        code:
+        success:
+          type: boolean
+          description: |
+            حالة النجاح الإجمالية
+            Overall success status
+            مجموعی کامیابی کی حیثیت
+        total_success:
           type: integer
-        job_id:
-          type: string
-        messages:
+          description: |
+            عدد الرسائل المرسلة بنجاح
+            Number of successfully sent messages
+            کامیابی سے بھیجے گئے پیغامات کی تعداد
+        total_failed:
+          type: integer
+          description: |
+            عدد الرسائل الفاشلة
+            Number of failed messages
+            ناکام پیغامات کی تعداد
+        job_ids:
           type: array
           items:
-            type: object
-            properties:
-              err_text:
-                type: string
-
-    BalanceResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-        total_balance:
-          type: number
-        message:
-          type: string
-
-    SendersResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              sender_name:
-                type: string
-        message:
-          type: string
+            type: string
+          description: |
+            قائمة معرفات المهام للتتبع
+            List of job IDs for tracking
+            ٹریکنگ کے لئے جاب آئی ڈیز کی فہرست
+        errors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+          description: |
+            خريطة رسائل الخطأ للأرقام المتأثرة
+            Map of error messages to affected numbers
+            متاثرہ نمبروں کے لئے خرابی کے پیغامات کا نقشہ
 
   responses:
     BadRequest:
-      description: Bad request
+      description: |
+        طلب غير صالح
+        Bad request
+        غلط درخواست
       content:
         application/json:
           schema:
@@ -144,7 +258,10 @@ components:
                 type: string
 
     UnprocessableEntity:
-      description: Unprocessable entity
+      description: |
+        كيان غير قابل للمعالجة
+        Unprocessable entity
+        ناقابل عمل اکائی
       content:
         application/json:
           schema:
