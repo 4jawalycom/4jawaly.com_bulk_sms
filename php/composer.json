@@ -1,0 +1,5 @@
+{
+    "require": {
+        "4jawalycom/sms-gateway-4jawaly": "^1.0"
+    }
+}
