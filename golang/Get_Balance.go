@@ -10,18 +10,28 @@ import (
 )
 
 func main() {
-	appID := "Api key"
-	appSec := "Api Secret"
+	appID := "API_KEY"
+	appSec := "API_SECRET"
 	appHash := base64.StdEncoding.EncodeToString([]byte(appID + ":" + appSec))
 	baseURL := "https://api-sms.4jawaly.com/api/v1/"
 
-	query := make(map[string]string) // Define the query parameters here if needed
-
-	url := baseURL + "account/area/me/packages?"
-	for k, v := range query {
-		url += fmt.Sprintf("%s=%s&", k, v)
+	query := map[string]string{
+		"is_active":          "1",
+		"order_by":           "id",
+		"order_by_type":      "desc",
+		"page":               "1",
+		"page_size":          "10",
+		"return_collection":  "1",
 	}
-	url = strings.TrimRight(url, "&")
+	// Build URL with query params
+	var params []string
+	for k, v := range query {
+		params = append(params, fmt.Sprintf("%s=%s", k, v))
+	}
+	url := baseURL + "account/area/me/packages"
+	if len(params) > 0 {
+		url += "?" + strings.Join(params, "&")
+	}
 
 	headers := map[string]string{
 		"Accept":        "application/json",
@@ -35,7 +45,6 @@ func main() {
 		fmt.Println("Error creating request:", err)
 		return
 	}
-
 	for k, v := range headers {
 		req.Header.Set(k, v)
 	}
@@ -58,17 +67,32 @@ func main() {
 		return
 	}
 
-	responseJSON := make(map[string]interface{})
+	var responseJSON map[string]interface{}
 	err = json.Unmarshal(body, &responseJSON)
 	if err != nil {
 		fmt.Println("Error unmarshalling response JSON:", err)
 		return
 	}
 
-	code := int(responseJSON["code"].(float64))
-	if code == 200 {
-		fmt.Println("Your balance:", responseJSON["total_balance"].(float64))
+	// Safe parsing
+	code, ok := responseJSON["code"].(float64)
+	if !ok {
+		fmt.Println("No code field in response")
+		return
+	}
+	if int(code) == 200 {
+		if balance, ok := responseJSON["total_balance"].(float64); ok {
+			fmt.Printf("Your balance: %.0f\n", balance)
+		} else if collection, ok := responseJSON["collection"].([]interface{}); ok {
+			b, _ := json.MarshalIndent(collection, "", "  ")
+			fmt.Println("Your packages collection:")
+			fmt.Println(string(b))
+		} else {
+			fmt.Println("No total_balance or collection in response!")
+		}
+	} else if msg, ok := responseJSON["message"].(string); ok {
+		fmt.Println(msg)
 	} else {
-		fmt.Println(responseJSON["message"].(string))
+		fmt.Println("Unexpected response:", string(body))
 	}
 }
