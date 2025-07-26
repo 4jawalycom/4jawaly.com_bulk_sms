@@ -25,6 +25,7 @@ class JawalySMSService(
         data class Error(val message: String) : Result<Nothing>()
     }
 
+    // =========[ إرسال رسالة SMS ]=========
     suspend fun sendSMS(
         message: String,
         numbers: List<String>,
@@ -85,6 +86,7 @@ class JawalySMSService(
         }
     }
 
+    // =========[ جلب الرصيد الحالي ]=========
     suspend fun checkBalance(): Result<Double> = withContext(Dispatchers.IO) {
         try {
             val url = URL("${baseUrl}account/area/me/packages")
@@ -112,7 +114,8 @@ class JawalySMSService(
         }
     }
 
-    suspend fun getSenders(): Result<List<String>> = withContext(Dispatchers.IO) {
+    // =========[ جلب أسماء الإرسال مع الافتراضي ]=========
+    suspend fun getSenders(): Result<List<Map<String, Any>>> = withContext(Dispatchers.IO) {
         try {
             val url = URL("${baseUrl}account/area/senders")
             val connection = (url.openConnection() as HttpURLConnection).apply {
@@ -131,9 +134,15 @@ class JawalySMSService(
             val jsonResponse = JSONObject(response)
             if (jsonResponse.getInt("code") == 200) {
                 val items = jsonResponse.getJSONArray("items")
-                val senders = mutableListOf<String>()
+                val senders = mutableListOf<Map<String, Any>>()
                 for (i in 0 until items.length()) {
-                    senders.add(items.getJSONObject(i).getString("sender_name"))
+                    val sender = items.getJSONObject(i)
+                    senders.add(
+                        mapOf(
+                            "sender_name" to sender.getString("sender_name"),
+                            "is_default" to (sender.optInt("is_default", 0) == 1)
+                        )
+                    )
                 }
                 Result.Success(senders)
             } else {
