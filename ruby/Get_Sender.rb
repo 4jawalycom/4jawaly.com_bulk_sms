@@ -3,15 +3,21 @@ require 'uri'
 require 'json'
 require 'base64'
 
-app_id = "Api Key"
-app_sec = "Api Secret"
-app_hash = Base64.encode64("#{app_id}:#{app_sec}").strip
+app_id = "API_KEY"
+app_sec = "API_SECRET"
+app_hash = Base64.strict_encode64("#{app_id}:#{app_sec}")
 
 base_url = "https://api-sms.4jawaly.com/api/v1/"
 
-query = {} # Replace with your query parameters if needed
+# Example query, you can modify
+query = {
+  "page_size" => 10,
+  "page" => 1,
+  "status" => 1,
+  "return_collection" => 1
+}
 
-url = URI.parse(base_url + "account/area/senders?" + query.map { |k, v| "#{k}=#{v}" }.join("&"))
+url = URI.parse(base_url + "account/area/senders?" + URI.encode_www_form(query))
 
 headers = {
   "Accept" => "application/json",
@@ -24,16 +30,21 @@ http.use_ssl = true
 request = Net::HTTP::Get.new(url.request_uri, headers)
 
 response = http.request(request)
-response_json = JSON.parse(response.body)
+response_json = JSON.parse(response.body) rescue {}
 
-puts "Error code: #{response_json['code']}"
+puts "HTTP code: #{response.code}"
+puts "API code: #{response_json['code']}"
 
-if response_json['code'] == 200
-  response_json['items'].each do |item|
-    puts item['sender_name']
+if response.code == '200' && response_json['code'] == 200
+  if response_json['items'] && !response_json['items'].empty?
+    response_json['items'].each do |item|
+      puts "#{item['sender_name']} (default: #{item['is_default'] == 1})"
+    end
+  else
+    puts "No senders found!"
   end
-elsif response.code == '400'
-  puts response_json['message']
+elsif response_json['message']
+  puts "Error: #{response_json['message']}"
 else
-  puts response.code
+  puts "Error code: #{response.code}"
 end
