@@ -1,35 +1,66 @@
 <?php
 
-$app_id = "x";
-$app_sec = "x";
-$app_hash  = base64_encode("$app_id:$app_sec");
+// Enter your API credentials
+$app_id = "API_KEY";     // Replace with your real API KEY
+$app_sec = "API_SECRET"; // Replace with your real API SECRET
+
+// Encode the credentials for Basic Auth
+$app_hash = base64_encode("$app_id:$app_sec");
+
+// API base URL
 $base_url = "https://api-sms.4jawaly.com/api/v1/";
-$query = [];
-$query["page_size"] = 10; // if you want pagination how many items per page
-$query["page"] = 1;// page number
-$query["status"] = 1; // get active 1 in active 2
-$query["sender_name"] = ''; // search sender name full name
-$query["is_ad"] = ''; // for ads 1 and 2 for not ads
-$query["return_collection"] = 1; // if you want to get collection for all not pagination
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_URL => $base_url.'account/area/senders?'.http_build_query($query),
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'GET',
-    CURLOPT_HTTPHEADER => array(
-        'Accept: application/json',
-        'Content-Type: application/json',
-        'Authorization: Basic '.$app_hash
-    ),
-));
 
-$response = curl_exec($curl);
+// Request parameters
+$query = [
+    "page_size" => 10,
+    "page" => 1,
+    "status" => 1,          // 1 = only active senders
+    "return_collection" => 1
+];
 
-curl_close($curl);
+// Build the full request URL
+$url = $base_url . "account/area/senders?" . http_build_query($query);
 
-var_dump(json_decode($response));
+// Request headers
+$headers = [
+    "Accept: application/json",
+    "Content-Type: application/json",
+    "Authorization: Basic $app_hash"
+];
+
+// Initialize cURL
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Only disable in safe/dev environment
+
+// Execute the request
+$response = curl_exec($ch);
+$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+// Check for cURL errors
+if (curl_errno($ch)) {
+    die("cURL Error: " . curl_error($ch));
+}
+curl_close($ch);
+
+// Parse the response
+$data = json_decode($response, true);
+
+// Handle the result
+if ($http_code == 200 && isset($data['items']) && !empty($data['items'])) {
+    $senders_list = [];
+    foreach ($data['items'] as $item) {
+        $senders_list[] = [
+            "sender_name" => $item['sender_name'],
+            "is_default" => (bool)$item['is_default']
+        ];
+    }
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($senders_list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+} else {
+    $error_msg = $data['message'] ?? "Failed to fetch sender names";
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(["message" => $error_msg, "error" => $data], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+}
